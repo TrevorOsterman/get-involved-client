@@ -1,0 +1,14 @@
+#signup {
+  margin: 0;
+  display: block;
+  text-align: center;
+}
+
+#signup > label {
+  display: block;
+  margin: 10px 0;
+}
+
+#signup > h2 {
+  margin: 10px;
+}

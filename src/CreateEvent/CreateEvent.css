@@ -1,0 +1,17 @@
+.event-form {
+  font-size: 15px;
+}
+
+.event-form > label {
+  display: block;
+  padding: 10px 0;
+}
+
+.event-form > button {
+  margin-top: 10px;
+  display: block;
+  font-size: 15px;
+  padding: 5px;
+  border: 3px dashed grey;
+  background-color: white;
+}

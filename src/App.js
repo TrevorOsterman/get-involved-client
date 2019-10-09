@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Link, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./Header/Header";
+import Navbar from "./Navbar/Navbar";
+import Lander from "./Lander/Lander";
+import EventList from "./EventList/EventList";
+import Event from "./Event/Event";
+import CreateEvent from "./CreateEvent/CreateEvent";
+import ApiContext from "/Users/TrevorOsterman/Projects/get-involved/src/Context.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      events: []
+    };
+  }
+
+  addEvent = event => {
+    this.setState({ events: [...this.state.events, event] });
+  };
+
+  render() {
+    const value = {
+      events: this.state.events,
+      addEvent: this.addEvent
+    };
+    return (
+      <ApiContext.Provider value={value}>
+        <div className="App">
+          <Route path="/" component={Navbar} />
+          <Route path="/" component={Header} />
+          <main>
+            <Route exact path="/" component={Lander} />
+            <Route exact path="/events" component={EventList} />
+            <Route path="/events/:eventId" component={Event} />
+            <Route path="/events/create" component={CreateEvent} />
+          </main>
+        </div>
+      </ApiContext.Provider>
+    );
+  }
 }
 
 export default App;

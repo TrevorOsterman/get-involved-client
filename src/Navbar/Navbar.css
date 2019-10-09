@@ -1,0 +1,21 @@
+nav {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 6%;
+}
+
+a.nav-link {
+  font-size: 17px;
+  margin: auto 6%;
+}
+
+div.left-nav,
+div.right-nav {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+div.right-nav {
+  right: 5;
+}

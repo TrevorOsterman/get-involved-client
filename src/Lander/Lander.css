@@ -1,0 +1,9 @@
+.Lander {
+  text-align: center;
+}
+
+.Lander > p {
+  padding: 15px 5%;
+  font-size: 20px;
+  text-align: left;
+}
