@@ -1,0 +1,20 @@
+div.header-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 0;
+}
+
+div.header {
+  font-size: 15px;
+  margin: 0;
+}
+
+div.table-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.table-cell {
+  font-size: 12px;
+  margin: 0;
+}

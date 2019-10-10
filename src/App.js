@@ -31,12 +31,12 @@ class App extends React.Component {
         <div className="App">
           <Route path="/" component={Navbar} />
           <Route path="/" component={Header} />
-          <main>
+          <div className="main-routes">
             <Route exact path="/" component={Lander} />
             <Route exact path="/events" component={EventList} />
             <Route path="/events/:eventId" component={Event} />
             <Route path="/events/create" component={CreateEvent} />
-          </main>
+          </div>
         </div>
       </ApiContext.Provider>
     );
