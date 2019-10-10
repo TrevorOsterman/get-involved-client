@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "get-involved",
+  "alias": "get-involved",
+  "routes": [
+    {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": ".*",
+      "dest": "/index.html"
+    }
+  ]
+}
