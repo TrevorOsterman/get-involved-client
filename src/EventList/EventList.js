@@ -21,7 +21,6 @@ export default class EventList extends React.Component {
         />
       </div>
     ));
-    console.log(events);
     return (
       <section className="events-table">
         <h2>events</h2>

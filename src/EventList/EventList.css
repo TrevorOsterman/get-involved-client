@@ -3,7 +3,6 @@ div.EventList {
 
 div.header-row {
   display: flex;
-  flex-wrap: wrap;
   margin: 2% 0;
 }
 
@@ -20,10 +19,9 @@ div.header {
 div.table-row {
   margin-bottom: 10px;
   display: flex;
-  flex-wrap: wrap;
 }
 
-div.table-cell {
+.table-cell {
   font-size: 12px;
   margin: 0;
   width: 16.6%;
@@ -33,4 +31,18 @@ div.table-cell {
   text-decoration: none;
   color: black;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .header:nth-child(5),
+  .header:nth-child(6),
+  .table-cell:nth-child(5),
+  .table-cell:nth-child(6) {
+    display: none;
+  }
+
+  .header,
+  .table-cell {
+    width: 25%;
+  }
 }
