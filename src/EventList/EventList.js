@@ -16,7 +16,7 @@ export default class EventList extends React.Component {
           date={ev.date}
           city={ev.city}
           state={ev.state}
-          organization={ev.organization}
+          org={ev.organization}
           link={ev.link}
         />
       </div>
@@ -33,12 +33,15 @@ export default class EventList extends React.Component {
 
         <div className="EventList">
           <div className="header-row">
-            <div className="header">title</div>
-            <div className="header">date</div>
-            <div className="header">city</div>
-            <div className="header">state</div>
-            <div className="header">organization</div>
-            <div className="header">link</div>
+            {[`title`, `date`, `city`, `state`, `organization`, `link`].map(
+              (key, id) => {
+                return (
+                  <div key={id} className="header" style={{ order: id }}>
+                    {key}
+                  </div>
+                );
+              }
+            )}
           </div>
 
           <div className="event-rows">{eventTable}</div>

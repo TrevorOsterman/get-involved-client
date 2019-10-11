@@ -3,8 +3,13 @@ div.EventList {
 
 div.header-row {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   margin: 2% 0;
+}
+
+.header {
+  width: 16.6%;
+  font-weight: bolder;
 }
 
 div.header {
@@ -13,13 +18,15 @@ div.header {
 }
 
 div.table-row {
+  margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 div.table-cell {
   font-size: 12px;
   margin: 0;
+  width: 16.6%;
 }
 
 .create-event-link {
