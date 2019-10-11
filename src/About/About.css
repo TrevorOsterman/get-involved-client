@@ -1,0 +1,9 @@
+.about {
+  width: 75%;
+  margin: auto;
+  text-align: left;
+}
+
+.about > p {
+  padding: 15px 0;
+}

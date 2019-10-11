@@ -1,5 +1,5 @@
 import React from "react";
-import Signup from "../Signup/Signup";
+
 import { Link } from "react-router-dom";
 import "./Lander.css";
 
@@ -25,8 +25,6 @@ export default class Lander extends React.Component {
         <Link to="/events" className="enter-button">
           enter
         </Link>
-
-        <Signup />
       </div>
     );
   }

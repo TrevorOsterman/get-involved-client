@@ -66,42 +66,54 @@ export default class CreateEvent extends React.Component {
       <section>
         <h2 className="create-header">create an opportunity:</h2>
         <form className="event-form">
-          <label>title: </label>
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={e => this.updateTitle(e.target.value)}
-          ></input>
-          <label>description: </label>
-          <textarea
-            rows="10"
-            onChange={e => this.updateDesc(e.target.value)}
-          ></textarea>
-          <label>date: </label>
-          <input type="date" onChange={e => this.updateDate(e.target.value)} />
-          <label>city: </label>
-          <input
-            type="text"
-            onChange={e => this.updateCity(e.target.value)}
-          ></input>
-          <label>state: </label>
-          <input
-            type="text"
-            onChange={e => this.updateState(e.target.value)}
-          ></input>
-          <label>organization: </label>
-          <input
-            type="text"
-            onChange={e => this.updateOrg(e.target.value)}
-          ></input>
-          <label>link: </label>
-          <input
-            type="text"
-            onChange={e => this.updateLink(e.target.value)}
-          ></input>
-          <button type="submit" onClick={e => this.handleSubmit(e)}>
-            submit
-          </button>
+          <fieldset className="non-desc">
+            <label>title: </label>
+            <input
+              type="text"
+              value={this.state.title}
+              onChange={e => this.updateTitle(e.target.value)}
+            ></input>
+
+            <label>date: </label>
+            <input
+              type="date"
+              onChange={e => this.updateDate(e.target.value)}
+            />
+            <label>city: </label>
+            <input
+              type="text"
+              onChange={e => this.updateCity(e.target.value)}
+            ></input>
+            <label>state: </label>
+            <input
+              type="text"
+              onChange={e => this.updateState(e.target.value)}
+            ></input>
+            <label>organization: </label>
+            <input
+              type="text"
+              onChange={e => this.updateOrg(e.target.value)}
+            ></input>
+            <label>link: </label>
+            <input
+              type="text"
+              onChange={e => this.updateLink(e.target.value)}
+            ></input>
+          </fieldset>
+          <fieldset className="desc">
+            <label>description: </label>
+            <textarea
+              rows="10"
+              onChange={e => this.updateDesc(e.target.value)}
+            ></textarea>
+            <button
+              className="create-submit"
+              type="submit"
+              onClick={e => this.handleSubmit(e)}
+            >
+              submit
+            </button>
+          </fieldset>
         </form>
       </section>
     );

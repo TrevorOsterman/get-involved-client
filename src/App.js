@@ -6,7 +6,9 @@ import Navbar from "./Navbar/Navbar";
 import Lander from "./Lander/Lander";
 import EventList from "./EventList/EventList";
 import Event from "./Event/Event";
+import Signup from "./Signup/Signup";
 import CreateEvent from "./CreateEvent/CreateEvent";
+import About from "./About/About";
 import ApiContext from "/Users/TrevorOsterman/Projects/get-involved/src/Context.js";
 
 class App extends React.Component {
@@ -36,6 +38,8 @@ class App extends React.Component {
             <Route exact path="/events" component={EventList} />
             <Route path="/events/:eventId" component={Event} />
             <Route path="/events/create" component={CreateEvent} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/about" component={About} />
           </div>
         </div>
       </ApiContext.Provider>

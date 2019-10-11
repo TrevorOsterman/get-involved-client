@@ -1,3 +1,6 @@
+div.EventList {
+}
+
 div.header-row {
   display: flex;
   justify-content: space-between;
@@ -17,4 +20,10 @@ div.table-row {
 div.table-cell {
   font-size: 12px;
   margin: 0;
+}
+
+.create-event-link {
+  text-decoration: none;
+  color: black;
+  margin-top: 20px;
 }

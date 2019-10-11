@@ -1,9 +1,23 @@
 .Lander {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .Lander > p {
   padding: 15px 5%;
   font-size: 20px;
   text-align: left;
+}
+
+.enter-button {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  margin-top: 30px;
+}
+
+.enter-button:hover {
+  cursor: pointer;
+  color: gold;
 }

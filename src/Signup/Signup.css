@@ -12,3 +12,29 @@
 #signup > h2 {
   margin: 10px;
 }
+
+.register-p {
+  margin: 0;
+  width: 50%;
+  flex-basis: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.register-p > p {
+  margin: 0;
+  padding: 15px 5%;
+  font-size: 20px;
+  text-align: left;
+}
+
+.register-p > a {
+  padding: 15px 5%;
+}
+
+div.signup-div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
