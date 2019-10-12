@@ -10,18 +10,42 @@ import Signup from "./Signup/Signup";
 import CreateEvent from "./CreateEvent/CreateEvent";
 import About from "./About/About";
 import ApiContext from "/Users/TrevorOsterman/Projects/get-involved/src/Context.js";
+import config from "./config.js";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      events: []
+      events: [],
+      error: null
     };
   }
+
+  setEvents = events => {
+    this.setState({ events });
+  };
 
   addEvent = event => {
     this.setState({ events: [...this.state.events, event] });
   };
+
+  componentDidMount() {
+    fetch(`${config.API_ENDPOINT}/api/events`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        return res.json();
+      })
+      .then(this.setEvents)
+      .catch(error => this.setState({ error }));
+  }
 
   render() {
     const value = {
