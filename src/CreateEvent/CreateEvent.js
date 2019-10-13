@@ -1,6 +1,7 @@
 import React from "react";
 import ApiContext from "../Context";
 import "./CreateEvent.css";
+import config from "../config.js";
 
 export default class CreateEvent extends React.Component {
   static contextType = ApiContext;
@@ -8,12 +9,13 @@ export default class CreateEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      eventId: "",
       title: "",
       description: "",
       date: "",
       city: "",
       state: "",
-      organization: "",
+      org: "",
       link: ""
     };
   }
@@ -39,7 +41,7 @@ export default class CreateEvent extends React.Component {
   }
 
   updateOrg(value) {
-    this.setState({ organization: value });
+    this.setState({ org: value });
   }
 
   updateLink(value) {
@@ -54,11 +56,30 @@ export default class CreateEvent extends React.Component {
       date: this.state.date,
       city: this.state.city,
       state: this.state.state,
-      organization: this.state.organization,
+      org: this.state.org,
       link: this.state.link
     };
-    this.context.addEvent(opp);
-    this.props.history.push("/events");
+    const url = `${config.API_ENDPOINT}/api/events`;
+    const options = {
+      method: "POST",
+      body: JSON.stringify(opp),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    console.log(JSON.stringify(opp));
+
+    fetch(url, options)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Something went wrong");
+        }
+        return res.json();
+      })
+      .then(opp => {
+        this.context.addEvent(opp);
+        this.props.history.push("/events");
+      });
   }
 
   render() {
