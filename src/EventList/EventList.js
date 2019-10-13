@@ -10,15 +10,17 @@ export default class EventList extends React.Component {
     const { events = [] } = this.context;
     const eventTable = events.map((ev, idx) => (
       <div className="table-row" key={idx}>
-        <Event
-          id={idx}
-          name={ev.title}
-          date={ev.date}
-          city={ev.city}
-          state={ev.state}
-          org={ev.organization}
-          link={ev.link}
-        />
+        <Link className="table-row-link" to={`/events/${ev.eventId}`}>
+          <Event
+            id={idx}
+            name={ev.title}
+            date={ev.date}
+            city={ev.city}
+            state={ev.state}
+            org={ev.organization}
+            link={ev.link}
+          />
+        </Link>
       </div>
     ));
     return (

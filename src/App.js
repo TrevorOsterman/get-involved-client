@@ -8,6 +8,7 @@ import EventList from "./EventList/EventList";
 import Event from "./Event/Event";
 import Signup from "./Signup/Signup";
 import CreateEvent from "./CreateEvent/CreateEvent";
+import EventDetails from "./EventDetails/EventDetails";
 import About from "./About/About";
 import ApiContext from "/Users/TrevorOsterman/Projects/get-involved/src/Context.js";
 import config from "./config.js";
@@ -60,7 +61,7 @@ class App extends React.Component {
           <div className="main-routes">
             <Route exact path="/" component={Lander} />
             <Route exact path="/events" component={EventList} />
-            <Route path="/events/:eventId" component={Event} />
+            <Route path="/events/:eventId" component={EventDetails} />
             <Route path="/events/create" component={CreateEvent} />
             <Route path="/signup" component={Signup} />
             <Route path="/about" component={About} />
