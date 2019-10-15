@@ -61,8 +61,25 @@ export default class EditEvent extends React.Component {
   handleEdit(e) {
     e.preventDefault();
     const update = this.state;
-    this.context.editEvent(update);
-    this.props.history.push("/events");
+    const url = `${config.API_ENDPOINT}/api/events/${this.props.match.params.eventId}`;
+    const options = {
+      method: "PATCH",
+      body: JSON.stringify(update),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    fetch(url, options)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Could not edit");
+        }
+      })
+      .then(res => {
+        this.context.editEvent(update);
+        this.props.history.push("/events");
+      });
   }
 
   static contextType = ApiContext;

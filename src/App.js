@@ -42,6 +42,14 @@ class App extends React.Component {
     });
   };
 
+  deleteEvent = oldEvent => {
+    this.setState({
+      events: [
+        ...this.state.events.filter(ev => ev.eventId !== oldEvent.eventId)
+      ]
+    });
+  };
+
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/api/events`, {
       method: "GET",
@@ -64,7 +72,8 @@ class App extends React.Component {
     const value = {
       events: this.state.events,
       addEvent: this.addEvent,
-      editEvent: this.editEvent
+      editEvent: this.editEvent,
+      deleteEvent: this.deleteEvent
     };
     return (
       <ApiContext.Provider value={value}>
