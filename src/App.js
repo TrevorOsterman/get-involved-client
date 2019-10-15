@@ -8,6 +8,7 @@ import EventList from "./EventList/EventList";
 import Event from "./Event/Event";
 import Signup from "./Signup/Signup";
 import CreateEvent from "./CreateEvent/CreateEvent";
+import EditEvent from "./EditEvent/EditEvent";
 import EventDetails from "./EventDetails/EventDetails";
 import About from "./About/About";
 import ApiContext from "/Users/TrevorOsterman/Projects/get-involved/src/Context.js";
@@ -28,6 +29,17 @@ class App extends React.Component {
 
   addEvent = event => {
     this.setState({ events: [...this.state.events, event] });
+  };
+
+  editEvent = update => {
+    this.setState({
+      events: [
+        ...this.state.events.filter(
+          oldEvent => oldEvent.eventId !== update.eventId
+        ),
+        update
+      ]
+    });
   };
 
   componentDidMount() {
@@ -51,7 +63,8 @@ class App extends React.Component {
   render() {
     const value = {
       events: this.state.events,
-      addEvent: this.addEvent
+      addEvent: this.addEvent,
+      editEvent: this.editEvent
     };
     return (
       <ApiContext.Provider value={value}>
@@ -61,8 +74,9 @@ class App extends React.Component {
           <div className="main-routes">
             <Route exact path="/" component={Lander} />
             <Route exact path="/events" component={EventList} />
-            <Route path="/events/:eventId" component={EventDetails} />
-            <Route path="/events/create" component={CreateEvent} />
+            <Route exact path="/events/:eventId" component={EventDetails} />
+            <Route exact path="/create" component={CreateEvent} />
+            <Route path="/edit/:eventId" component={EditEvent} />
             <Route path="/signup" component={Signup} />
             <Route path="/about" component={About} />
           </div>

@@ -48,7 +48,7 @@ export default class EventList extends React.Component {
           <div className="event-rows">{eventTable}</div>
         </div>
 
-        <Link className="create-event-link" to="/events/create">
+        <Link className="create-event-link" to="/create">
           + create new event
         </Link>
       </section>
