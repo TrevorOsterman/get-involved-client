@@ -67,7 +67,6 @@ export default class CreateEvent extends React.Component {
         "Content-Type": "application/json"
       }
     };
-    console.log(JSON.stringify(opp));
 
     fetch(url, options)
       .then(res => {
