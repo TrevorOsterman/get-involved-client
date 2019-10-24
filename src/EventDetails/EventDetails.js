@@ -11,7 +11,7 @@ export default class EventDetails extends React.Component {
   }
 
   handleDelete() {
-    const deleted = this.context.events[0];
+    const id = this.props.match.params.eventId;
     const url = `${config.API_ENDPOINT}/api/events/${this.props.match.params.eventId}`;
     const options = {
       method: "DELETE",
@@ -22,21 +22,20 @@ export default class EventDetails extends React.Component {
 
     fetch(url, options)
       .then(res => {
-        if (!res.ok) {
-          throw new Error("Could not be deleted");
-        }
+        if (!res.ok) return res.json();
       })
       .then(ev => {
-        this.context.deleteEvent(deleted);
+        this.context.deleteEvent(id);
       });
   }
 
   static contextType = ApiContext;
   render() {
     const { events = [] } = this.context;
-    const eventId = this.props.match.params.eventId;
-    const eventPage = events.find(opp => opp.eventId === eventId) || {
-      eventId: ""
+    const id = this.props.match.params.eventId;
+    /* why doesn't this work with strict equivalency? */
+    const eventPage = events.find(opp => opp.eventid == id) || {
+      eventid: ""
     };
     return (
       <div className="event-details">
@@ -46,14 +45,14 @@ export default class EventDetails extends React.Component {
           <p>{eventPage.description}</p>
         </div>
         <ul className="details">
-          <li>Date: {eventPage.date}</li>
+          <li>Date: {eventPage.event_date}</li>
           <li>City: {eventPage.city}</li>
           <li>State: {eventPage.state}</li>
-          <li>Organization: {eventPage.org}</li>
+          <li>Organization: {eventPage.organization}</li>
           <li>Link(s): {eventPage.link}</li>
         </ul>
 
-        <Link to={`/edit/${eventId}`}>edit</Link>
+        <Link to={`/edit/${id}`}>edit</Link>
         <Link onClick={e => this.handleDelete(e)} to="/events">
           delete
         </Link>

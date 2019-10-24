@@ -7,11 +7,11 @@ export default class EditEvent extends React.Component {
     super(props);
     this.state = {
       title: "",
-      date: "",
+      event_date: "",
       city: "",
       state: "",
       description: "",
-      org: "",
+      organization: "",
       link: ""
     };
   }
@@ -39,7 +39,7 @@ export default class EditEvent extends React.Component {
   }
 
   updateDate(value) {
-    this.setState({ date: value });
+    this.setState({ event_date: value });
   }
 
   updateCity(value) {
@@ -51,7 +51,7 @@ export default class EditEvent extends React.Component {
   }
 
   updateOrg(value) {
-    this.setState({ org: value });
+    this.setState({ organization: value });
   }
 
   updateLink(value) {
@@ -73,7 +73,7 @@ export default class EditEvent extends React.Component {
     fetch(url, options)
       .then(res => {
         if (!res.ok) {
-          throw new Error("Could not edit");
+          res.json();
         }
       })
       .then(res => {

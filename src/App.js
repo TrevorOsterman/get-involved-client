@@ -42,12 +42,43 @@ class App extends React.Component {
     });
   };
 
-  deleteEvent = oldEvent => {
+  deleteEvent = id => {
     this.setState({
-      events: [
-        ...this.state.events.filter(ev => ev.eventId !== oldEvent.eventId)
-      ]
+      events: [...this.state.events.filter(ev => ev.eventId !== ev.id)]
     });
+  };
+
+  handleSearch = value => {
+    function filterItems(arr, query) {
+      return arr.filter(
+        ev =>
+          ev.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+          ev.city.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+          ev.state.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+          ev.organization.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      );
+    }
+    this.setState({
+      events: filterItems([...this.state.events], value)
+    });
+  };
+
+  handleClear = () => {
+    fetch(`${config.API_ENDPOINT}/api/events`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        return res.json();
+      })
+      .then(this.setEvents)
+      .catch(error => this.setState({ error }));
   };
 
   componentDidMount() {
@@ -73,7 +104,9 @@ class App extends React.Component {
       events: this.state.events,
       addEvent: this.addEvent,
       editEvent: this.editEvent,
-      deleteEvent: this.deleteEvent
+      deleteEvent: this.deleteEvent,
+      handleSearch: this.handleSearch,
+      handleClear: this.handleClear
     };
     return (
       <ApiContext.Provider value={value}>

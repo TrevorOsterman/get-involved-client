@@ -53,10 +53,10 @@ export default class CreateEvent extends React.Component {
     const opp = {
       title: this.state.title,
       description: this.state.description,
-      date: this.state.date,
+      event_date: this.state.date,
       city: this.state.city,
       state: this.state.state,
-      org: this.state.org,
+      organization: this.state.org,
       link: this.state.link
     };
     const url = `${config.API_ENDPOINT}/api/events`;
