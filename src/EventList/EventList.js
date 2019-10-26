@@ -16,6 +16,20 @@ export default class EventList extends React.Component {
     this.context.rerender();
   }
 
+  changeDateFormat(inputDate) {
+    // expects Y-m-d
+    var splitDate = inputDate.split("-");
+    if (splitDate.count == 0) {
+      return null;
+    }
+
+    var year = splitDate[0].substring(2, 4);
+    var month = splitDate[1];
+    var day = splitDate[2];
+
+    return month + "\\" + day + "\\" + year;
+  }
+
   render() {
     const { events = [] } = this.context;
     const eventTable = events.map((ev, idx) => (
@@ -24,7 +38,7 @@ export default class EventList extends React.Component {
           <Event
             id={idx}
             name={ev.title}
-            date={ev.event_date}
+            date={this.changeDateFormat(ev.event_date.substring(0, 10))}
             city={ev.city}
             state={ev.state}
             org={ev.organization}
