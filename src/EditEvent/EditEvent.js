@@ -6,6 +6,7 @@ export default class EditEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      eventid: null,
       title: "",
       event_date: "",
       city: "",

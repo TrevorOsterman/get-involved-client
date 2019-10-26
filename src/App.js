@@ -28,24 +28,15 @@ class App extends React.Component {
   };
 
   addEvent = event => {
-    this.setState({ events: [...this.state.events, event] });
+    this.rerender();
   };
 
   editEvent = update => {
-    this.setState({
-      events: [
-        ...this.state.events.filter(
-          oldEvent => oldEvent.eventId !== update.eventId
-        ),
-        update
-      ]
-    });
+    this.rerender();
   };
 
   deleteEvent = id => {
-    this.setState({
-      events: [...this.state.events.filter(ev => ev.eventId !== ev.id)]
-    });
+    this.rerender();
   };
 
   handleSearch = value => {
@@ -63,7 +54,7 @@ class App extends React.Component {
     });
   };
 
-  handleClear = () => {
+  rerender = () => {
     fetch(`${config.API_ENDPOINT}/api/events`, {
       method: "GET",
       headers: {
@@ -82,21 +73,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/api/events`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-      }
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(res.status);
-        }
-        return res.json();
-      })
-      .then(this.setEvents)
-      .catch(error => this.setState({ error }));
+    this.rerender();
   }
 
   render() {
@@ -106,7 +83,7 @@ class App extends React.Component {
       editEvent: this.editEvent,
       deleteEvent: this.deleteEvent,
       handleSearch: this.handleSearch,
-      handleClear: this.handleClear
+      rerender: this.rerender
     };
     return (
       <ApiContext.Provider value={value}>

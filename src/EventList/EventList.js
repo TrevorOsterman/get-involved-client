@@ -11,6 +11,11 @@ export default class EventList extends React.Component {
     this.state = { search: "" };
   }
 
+  searchClear() {
+    this.setState({ search: "" });
+    this.context.rerender();
+  }
+
   render() {
     const { events = [] } = this.context;
     const eventTable = events.map((ev, idx) => (
@@ -41,7 +46,7 @@ export default class EventList extends React.Component {
           <button onClick={() => this.context.handleSearch(this.state.search)}>
             go
           </button>
-          <button onClick={() => this.context.handleClear()}>clear</button>
+          <button onClick={() => this.searchClear()}>clear</button>
         </div>
 
         <div className="EventList">
