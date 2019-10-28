@@ -111,6 +111,7 @@ export default class EditEvent extends React.Component {
             ></input>
             <label>state: </label>
             <input
+              maxLength="2"
               type="text"
               value={this.state.state}
               onChange={e => this.updateState(e.target.value)}

@@ -139,7 +139,7 @@ export default class CreateEvent extends React.Component {
             <ValidationError message={this.validateCity()} />
             <label>state: </label>
             <input
-              maxlength="2 "
+              maxLength="2"
               type="text"
               onChange={e => this.updateState(e.target.value)}
             ></input>

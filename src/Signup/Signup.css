@@ -16,7 +16,7 @@
 .register-p {
   margin: 0;
   width: 50%;
-  flex-basis: 75%;
+  flex-basis: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -24,7 +24,7 @@
 
 .register-p > p {
   margin: 0;
-  padding: 15px 5%;
+  padding: 15px 3%;
   font-size: 20px;
   text-align: left;
 }
@@ -37,4 +37,15 @@ div.signup-div {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+@media only screen (min-width: 600px) {
+  #signup {
+    width: 60%;
+  }
+
+  .register-p > p {
+    max-width: 200px;
+    flex-basis: 0;
+  }
 }

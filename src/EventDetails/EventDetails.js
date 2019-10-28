@@ -11,6 +11,20 @@ export default class EventDetails extends React.Component {
     super(props);
   }
 
+  changeDateFormat(inputDate) {
+    // expects Y-m-d
+    var splitDate = inputDate.split("-");
+    if (splitDate.count == 0) {
+      return null;
+    }
+
+    var year = splitDate[0].substring(2, 4);
+    var month = splitDate[1];
+    var day = splitDate[2];
+
+    return month + "\\" + day + "\\" + year;
+  }
+
   handleDelete() {
     const id = this.props.match.params.eventId;
     const url = `${config.API_ENDPOINT}/api/events/${this.props.match.params.eventId}`;
@@ -34,7 +48,6 @@ export default class EventDetails extends React.Component {
   render() {
     const { events = [] } = this.context;
     const id = this.props.match.params.eventId;
-    /* why doesn't this work with strict equivalency? */
     const eventPage = events.find(opp => opp.eventid == id) || {
       eventid: ""
     };
@@ -46,11 +59,21 @@ export default class EventDetails extends React.Component {
           <p className="ev-desc">{eventPage.description}</p>
         </div>
         <ul className="details">
-          <li>Date: {eventPage.event_date}</li>
-          <li>City: {eventPage.city}</li>
-          <li>State: {eventPage.state}</li>
-          <li>Organization: {eventPage.organization}</li>
-          <li>Link(s): {eventPage.link}</li>
+          <li>
+            <b>Date:</b> {eventPage.event_date}
+          </li>
+          <li>
+            <b>City:</b> {eventPage.city}
+          </li>
+          <li>
+            <b>State:</b> {eventPage.state}
+          </li>
+          <li>
+            <b>Organization:</b> {eventPage.organization}
+          </li>
+          <li>
+            <b>Link(s):</b> {eventPage.link}
+          </li>
         </ul>
         <div className="edit-delete">
           <Link to={`/edit/${id}`}>edit</Link>

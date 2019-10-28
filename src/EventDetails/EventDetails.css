@@ -4,6 +4,10 @@
   margin: 10px 5px;
 }
 
+.event-title {
+  font-size: 27px;
+}
+
 .event-description {
   padding: 15px 0;
 }
@@ -34,4 +38,14 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.edit-delete > a {
+  text-decoration: none;
+  color: black;
+}
+
+.edit-delete > a :hover {
+  text-decoration: underline;
+  color: black;
 }

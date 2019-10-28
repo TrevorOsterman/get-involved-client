@@ -13,8 +13,7 @@ export default function About() {
           it.
         </p>
         <p>
-          the app is a current work in progress by an aspiring and very tired
-          developer named{" "}
+          the app is a current work in progress by an aspiring developer named{" "}
           <a href="http://www.github.com/TrevorOsterman">
             <b>trevor osterman</b>
           </a>

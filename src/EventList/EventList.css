@@ -66,8 +66,15 @@ div.EventList {
   text-decoration: none;
   color: black;
   margin-top: 20px;
+  font-size: 15px;
 }
 
 #search {
   margin: 20px 10px;
+}
+
+@media only screen and (min-width: 800px) {
+  .table-cell {
+    font-size: 13px;
+  }
 }
