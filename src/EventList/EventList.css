@@ -1,16 +1,25 @@
 div.EventList {
+  justify-content: space-around;
 }
 
 .header-row {
   display: flex;
-  margin: 10px 5px;
+  padding: 0 10px;
 }
 
 .header {
-  width: 16.6%;
   font-weight: bolder;
-  font-size: 15px;
+  font-size: 17px;
   margin: 0;
+}
+
+.header,
+.table-cell {
+  padding: 5px;
+}
+
+.table-cell {
+  font-size: 12px;
 }
 
 .table-row-link {
@@ -25,11 +34,32 @@ div.EventList {
   background-color: rgba(105, 105, 105, 0.19);
 }
 
-.table-cell {
+.table-cell:nth-child(1),
+.header:nth-child(1) {
   display: flex;
-  font-size: 12px;
   margin: 0;
-  width: 16.6%;
+  width: 50%;
+}
+
+.table-cell:nth-child(2),
+.header:nth-child(2) {
+  display: flex;
+  margin: 0;
+  width: 20%;
+}
+
+.table-cell:nth-child(3),
+.header:nth-child(3) {
+  display: flex;
+  margin: 0;
+  width: 20%;
+}
+
+.table-cell:nth-child(4),
+.header:nth-child(4) {
+  display: flex;
+  margin: 0;
+  width: 10%;
 }
 
 .create-event-link {
@@ -38,16 +68,6 @@ div.EventList {
   margin-top: 20px;
 }
 
-@media screen and (max-width: 700px) {
-  .header:nth-child(5),
-  .header:nth-child(6),
-  .table-cell:nth-child(5),
-  .table-cell:nth-child(6) {
-    display: none;
-  }
-
-  .header,
-  .table-cell {
-    width: 25%;
-  }
+#search {
+  margin: 20px 10px;
 }

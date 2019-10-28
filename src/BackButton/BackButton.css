@@ -1,0 +1,9 @@
+.back-arrow {
+  text-decoration: none;
+  color: rgb(59, 41, 14);
+  font-size: 30px;
+}
+
+a.go-back-link {
+  text-decoration: none;
+}

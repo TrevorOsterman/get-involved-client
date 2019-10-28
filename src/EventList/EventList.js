@@ -40,7 +40,7 @@ export default class EventList extends React.Component {
             name={ev.title}
             date={this.changeDateFormat(ev.event_date.substring(0, 10))}
             city={ev.city}
-            state={ev.state}
+            state={ev.state.toUpperCase()}
             org={ev.organization}
             link={ev.link}
           />
@@ -49,8 +49,8 @@ export default class EventList extends React.Component {
     ));
     return (
       <section className="events-table">
-        <h2>events</h2>
         <div id="search">
+          <h2 className="events-title">events</h2>
           <span className="searchlabel">search: </span>
           <input
             type="text"
@@ -65,15 +65,13 @@ export default class EventList extends React.Component {
 
         <div className="EventList">
           <div className="header-row">
-            {[`title`, `date`, `city`, `state`, `organization`, `link`].map(
-              (key, id) => {
-                return (
-                  <div key={id} className="header" style={{ order: id }}>
-                    {key}
-                  </div>
-                );
-              }
-            )}
+            {[`title`, `date`, `city`, `state`].map((key, id) => {
+              return (
+                <div key={id} className="header" style={{ order: id }}>
+                  {key}
+                </div>
+              );
+            })}
           </div>
 
           <div className="event-rows">{eventTable}</div>

@@ -4,6 +4,7 @@ import ApiContext from "../Context";
 import { Link, Route } from "react-router-dom";
 import EditEvent from "../EditEvent/EditEvent";
 import config from "../config.js";
+import BackButton from "../BackButton/BackButton";
 
 export default class EventDetails extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ export default class EventDetails extends React.Component {
         <h2 className="event-title">{eventPage.title}</h2>
         <div className="event-description">
           <h3>Description:</h3>
-          <p>{eventPage.description}</p>
+          <p className="ev-desc">{eventPage.description}</p>
         </div>
         <ul className="details">
           <li>Date: {eventPage.event_date}</li>
@@ -51,11 +52,13 @@ export default class EventDetails extends React.Component {
           <li>Organization: {eventPage.organization}</li>
           <li>Link(s): {eventPage.link}</li>
         </ul>
-
-        <Link to={`/edit/${id}`}>edit</Link>
-        <Link onClick={e => this.handleDelete(e)} to="/events">
-          delete
-        </Link>
+        <div className="edit-delete">
+          <Link to={`/edit/${id}`}>edit</Link>
+          <Link onClick={e => this.handleDelete(e)} to="/events">
+            delete
+          </Link>
+        </div>
+        <BackButton />
       </div>
     );
   }
