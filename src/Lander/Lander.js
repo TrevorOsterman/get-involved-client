@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import "./Lander.css";
 
 export default class Lander extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="Lander">

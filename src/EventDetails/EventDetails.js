@@ -1,8 +1,7 @@
 import React from "react";
 import "./EventDetails.css";
 import ApiContext from "../Context";
-import { Link, Route } from "react-router-dom";
-import EditEvent from "../EditEvent/EditEvent";
+import { Link } from "react-router-dom";
 import config from "../config.js";
 import BackButton from "../BackButton/BackButton";
 

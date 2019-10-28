@@ -1,11 +1,10 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 import Header from "./Header/Header";
 import Navbar from "./Navbar/Navbar";
 import Lander from "./Lander/Lander";
 import EventList from "./EventList/EventList";
-import Event from "./Event/Event";
 import Signup from "./Signup/Signup";
 import CreateEvent from "./CreateEvent/CreateEvent";
 import EditEvent from "./EditEvent/EditEvent";
