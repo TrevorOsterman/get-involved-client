@@ -7,3 +7,12 @@
 .about > p {
   padding: 15px 0;
 }
+
+.github-link {
+  text-decoration: none;
+  color: black;
+}
+
+.github-link:hover {
+  text-decoration: underline;
+}

@@ -53,27 +53,29 @@ export default class EventDetails extends React.Component {
     return (
       <div className="event-details">
         <h2 className="event-title">{eventPage.title}</h2>
-        <div className="event-description">
-          <h3>Description:</h3>
-          <p className="ev-desc">{eventPage.description}</p>
+        <div className="details-body">
+          <div className="event-description">
+            <h3>Description:</h3>
+            <p className="ev-desc">{eventPage.description}</p>
+          </div>
+          <ul className="details">
+            <li>
+              <b>Date:</b> {eventPage.event_date}
+            </li>
+            <li>
+              <b>City:</b> {eventPage.city}
+            </li>
+            <li>
+              <b>State:</b> {eventPage.state}
+            </li>
+            <li>
+              <b>Organization:</b> {eventPage.organization}
+            </li>
+            <li>
+              <b>Link(s):</b> {eventPage.link}
+            </li>
+          </ul>
         </div>
-        <ul className="details">
-          <li>
-            <b>Date:</b> {eventPage.event_date}
-          </li>
-          <li>
-            <b>City:</b> {eventPage.city}
-          </li>
-          <li>
-            <b>State:</b> {eventPage.state}
-          </li>
-          <li>
-            <b>Organization:</b> {eventPage.organization}
-          </li>
-          <li>
-            <b>Link(s):</b> {eventPage.link}
-          </li>
-        </ul>
         <div className="edit-delete">
           <Link to={`/edit/${id}`}>edit</Link>
           <Link onClick={e => this.handleDelete(e)} to="/events">

@@ -14,7 +14,11 @@ export default function About() {
         </p>
         <p>
           the app is a current work in progress by an aspiring developer named{" "}
-          <a target="_blank" href="http://www.github.com/TrevorOsterman">
+          <a
+            className="github-link"
+            target="_blank"
+            href="http://www.github.com/TrevorOsterman"
+          >
             <b>trevor osterman</b>
           </a>
           . the app currently lacks restrictive permissions so as it stands
