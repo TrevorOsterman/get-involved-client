@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import ValidationError from "./ValidationError";
 import { MemoryRouter } from "react-router-dom";
 
-describe("App component", () => {
+describe("ValidationError component", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <MemoryRouter>
-        <App />
+        <ValidationError />
       </MemoryRouter>,
       div
     );

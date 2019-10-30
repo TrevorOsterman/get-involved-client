@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import EventDetails from "./EventDetails";
 import { MemoryRouter } from "react-router-dom";
 
-describe("App component", () => {
+describe("EventDetails component", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <MemoryRouter>
-        <App />
+        <EventDetails />
       </MemoryRouter>,
       div
     );

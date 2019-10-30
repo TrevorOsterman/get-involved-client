@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import Signup from "./Signup";
 import { MemoryRouter } from "react-router-dom";
 
-describe("App component", () => {
+describe("Signup component", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <MemoryRouter>
-        <App />
+        <Signup />
       </MemoryRouter>,
       div
     );
