@@ -48,7 +48,8 @@ export default class EventDetails extends React.Component {
     const { events = [] } = this.context;
     const id = this.props.match.params.eventId;
     const eventPage = events.find(opp => opp.eventid == id) || {
-      eventid: ""
+      eventid: "",
+      event_date: ""
     };
     return (
       <div className="event-details">
@@ -60,7 +61,8 @@ export default class EventDetails extends React.Component {
           </div>
           <ul className="details">
             <li>
-              <b>Date:</b> {eventPage.event_date}
+              <b>Date:</b>{" "}
+              {this.changeDateFormat(eventPage.event_date.substring(0, 10))}
             </li>
             <li>
               <b>City:</b> {eventPage.city}
