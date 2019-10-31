@@ -15,9 +15,10 @@
   font-size: 20px;
   color: black;
   margin-top: 30px;
+  transition: color 0.5s ease;
 }
 
 .enter-button:hover {
   cursor: pointer;
-  color: gold;
+  color: rgb(198, 139, 8);
 }
