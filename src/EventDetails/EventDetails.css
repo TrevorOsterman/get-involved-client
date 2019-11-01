@@ -16,6 +16,8 @@
 
 .ev-desc {
   font-size: 15px;
+  width: 100%;
+  white-space: pre-wrap;
 }
 
 .details {
@@ -35,7 +37,7 @@
 
 .details-body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
@@ -59,8 +61,12 @@
   color: black;
 }
 
-@media only screen and (min-width: 456px) {
+@media only screen and (min-width: 800px) {
   .details {
-    margin: auto;
+    margin: 0 auto;
+  }
+
+  .details-body {
+    flex-direction: row;
   }
 }
