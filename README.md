@@ -12,7 +12,8 @@ where you can take action immediately.
 explore, post, search, organize, and share volunteer opportunities all
 from one central location with getInvolved.
 
-![alt text]( "app screenshot")
+![IMG_4776](https://user-images.githubusercontent.com/50758006/68547211-2217fb80-039c-11ea-87ac-917029ad3f6a.jpg)
+![Screen Shot 2019-11-10 at 9 21 06 AM](https://user-images.githubusercontent.com/50758006/68547224-41af2400-039c-11ea-8eb7-b174fe5a8230.png)
 
 ## API
 
