@@ -10,23 +10,11 @@ export default class Signup extends React.Component {
         <section className="register-p">
           <p>
             <b>getInvolved</b> is currently in testing, and as such, is not
-            available to register with just yet. if you'd like, however, to
-            leave your name and email address with us, we'd be happy to reach
-            out as soon as the platform is fully functional!{" "}
+            available to register with just yet. please continue to check back
+            for the implementation of this functionality.
           </p>
           <BackButton />
-        </section>
-        <form id="signup">
-          <h2>sign up</h2>
-          <label>first name:</label>
-          <input type="text"></input>
-          <label>last name:</label>
-          <input type="text"></input>
-          <label>email:</label>
-          <input type="email"></input>
-          <br />
-          <button type="submit">submit</button>
-        </form>
+        </section>{" "}
       </div>
     );
   }

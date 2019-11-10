@@ -166,6 +166,13 @@ export default class CreateEvent extends React.Component {
               className="create-submit"
               type="submit"
               onClick={e => this.handleSubmit(e)}
+              disabled={
+                this.validateTitle() ||
+                this.validateDate() ||
+                this.validateCity() ||
+                this.validateState() ||
+                this.validateDesc()
+              }
             >
               submit
             </button>
