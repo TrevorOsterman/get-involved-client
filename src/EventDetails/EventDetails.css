@@ -5,8 +5,8 @@
   flex-wrap: wrap;
 }
 
-.event-title {
-  font-size: 27px;
+.events-title {
+  color: white;
 }
 
 .event-description {

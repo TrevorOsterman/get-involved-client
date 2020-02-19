@@ -2,10 +2,11 @@ nav {
   height: 40px;
   display: flex;
   justify-content: space-between;
-  margin: 2% 6%;
+  padding: 2% 6%;
 }
 
 a.nav-link {
+  vertical-align: middle;
   font-size: 17px;
   margin: auto 6%;
   text-decoration: none;
