@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Router } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 import Header from "./Header/Header";
 import Navbar from "./Navbar/Navbar";
@@ -18,6 +18,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       events: [],
+      loaded: false,
       error: null
     };
   }
@@ -68,6 +69,7 @@ class App extends React.Component {
         return res.json();
       })
       .then(this.setEvents)
+      .then(this.setState({ loaded: true }))
       .catch(error => this.setState({ error }));
   };
 
@@ -82,7 +84,8 @@ class App extends React.Component {
       editEvent: this.editEvent,
       deleteEvent: this.deleteEvent,
       handleSearch: this.handleSearch,
-      rerender: this.rerender
+      rerender: this.rerender,
+      didLoad: this.state.loaded
     };
     return (
       <ApiContext.Provider value={value}>

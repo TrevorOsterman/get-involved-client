@@ -47,40 +47,48 @@ export default class EventList extends React.Component {
         </Link>
       </div>
     ));
-    return (
-      <section className="events-table">
-        <div id="search">
-          <h2 className="events-title">events</h2>
-          <span className="searchlabel">search: </span>
-          <input
-            type="text"
-            value={this.state.search}
-            onChange={e => this.setState({ search: e.target.value })}
-          />
-          <button onClick={() => this.context.handleSearch(this.state.search)}>
-            go
-          </button>
-          <button onClick={() => this.searchClear()}>clear</button>
-        </div>
+    if (this.context.didLoad === false) {
+      return "loading";
+    }
 
-        <div className="EventList">
-          <div className="header-row">
-            {[`title`, `date`, `city`, `state`].map((key, id) => {
-              return (
-                <div key={id} className="header" style={{ order: id }}>
-                  {key}
-                </div>
-              );
-            })}
+    if (this.context.didLoad === true) {
+      return (
+        <section className="events-table">
+          <div id="search">
+            <h2 className="events-title">events</h2>
+            <span className="searchlabel">search: </span>
+            <input
+              type="text"
+              value={this.state.search}
+              onChange={e => this.setState({ search: e.target.value })}
+            />
+            <button
+              onClick={() => this.context.handleSearch(this.state.search)}
+            >
+              go
+            </button>
+            <button onClick={() => this.searchClear()}>clear</button>
           </div>
 
-          <div className="event-rows">{eventTable}</div>
-        </div>
+          <div className="EventList">
+            <div className="header-row">
+              {[`title`, `date`, `city`, `state`].map((key, id) => {
+                return (
+                  <div key={id} className="header" style={{ order: id }}>
+                    {key}
+                  </div>
+                );
+              })}
+            </div>
 
-        <Link className="create-event-link" to="/create">
-          <b>+ create new event</b>
-        </Link>
-      </section>
-    );
+            <div className="event-rows">{eventTable}</div>
+          </div>
+
+          <Link className="create-event-link" to="/create">
+            <b>+ create new event</b>
+          </Link>
+        </section>
+      );
+    }
   }
 }
