@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ApiContext from "../Context";
 import Event from "../Event/Event";
 import "./EventList.css";
+import LoadingPage from '../LoadingPage/LoadingPage'
 
 export default class EventList extends React.Component {
   static contextType = ApiContext;
@@ -48,7 +49,7 @@ export default class EventList extends React.Component {
       </div>
     ));
     if (this.context.didLoad === false) {
-      return "loading";
+      return <LoadingPage />;
     }
 
     if (this.context.didLoad === true) {
