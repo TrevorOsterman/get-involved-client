@@ -71,11 +71,13 @@ div.EventList {
 }
 
 .create-event-link {
+  position: fixed;
   text-decoration: none;
-  color: black;
-  margin-top: 20px;
+  color: rgba(156, 204, 151, 0.822);
   padding: 10px;
-  font-size: 15px;
+  font-size: 5vw;
+  bottom: 5%;
+  right: 5%;
 }
 
 #search {
@@ -88,5 +90,11 @@ div.EventList {
 @media only screen and (min-width: 800px) {
   .table-cell {
     font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .create-event-link {
+    font-size: 15vw;
   }
 }
