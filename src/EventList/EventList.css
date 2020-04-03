@@ -3,7 +3,7 @@ div.EventList {
 }
 
 .events-table {
-  background: rgb(206, 233, 203);
+  background: white;
   padding-bottom: 3%;
 }
 
@@ -34,11 +34,12 @@ div.EventList {
   display: flex;
   color: black;
   text-decoration: none;
+  background-color: rgb(206, 233, 203);
   transition: background-color 0.5s ease;
 }
 
 .table-row-link:hover {
-  background-color: rgba(105, 105, 105, 0.19);
+  background-color: rgba(105, 105, 105, 0.068);
 }
 
 .table-cell:nth-child(1),
@@ -81,6 +82,7 @@ div.EventList {
   padding: 20px 10px;
   color: white;
   background: rgb(165, 195, 161);
+  margin-bottom: 25px;
 }
 
 @media only screen and (min-width: 800px) {

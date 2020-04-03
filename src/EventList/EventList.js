@@ -19,7 +19,7 @@ export default class EventList extends React.Component {
   changeDateFormat(inputDate) {
     // expects Y-m-d
     var splitDate = inputDate.split("-");
-    if (splitDate.count == 0) {
+    if (splitDate.count === 0) {
       return null;
     }
 
