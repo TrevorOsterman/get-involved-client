@@ -66,10 +66,10 @@ class App extends React.Component {
         if (!res.ok) {
           throw new Error(res.status);
         }
+        this.setState({ loaded: true });
         return res.json();
       })
       .then(this.setEvents)
-      .then(this.setState({ loaded: true }))
       .catch(error => this.setState({ error }));
   };
 
